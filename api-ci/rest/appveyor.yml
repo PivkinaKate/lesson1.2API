@@ -1,0 +1,12 @@
+version: 1.0.{build}
+
+image: Visual Studio 2019
+
+before_build:
+  - ps: git checkout $env:APPVEYOR_REPO_BRANCH
+
+build_script:
+  - cmd: ./gradlew clean build
+
+test_script:
+  - cmd: ./gradlew test
